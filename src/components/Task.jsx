@@ -7,12 +7,13 @@ const Task = () => {
   return (
     <Container
     sx={{
-      backgroundColor: "#FAFAFA",
+      backgroundColor: "primary.main",
       marginTop: 0,
       display: "flex",
       alignItems: "center",
       height:50,
-      borderRadius:1
+      borderRadius:1,
+      maxWidth:500
     }}
   >
     <CheckButton />

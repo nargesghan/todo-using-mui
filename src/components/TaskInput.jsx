@@ -8,12 +8,13 @@ const TaskInput = () => {
   return (
     <Container
       sx={{
-        backgroundColor: "#FAFAFA",
+        backgroundColor: "primary.main",
         marginTop: 5,
         display: "flex",
         alignItems: "center",
         height:45,
-        borderRadius:1
+        borderRadius:1,
+        maxWidth:500
       }}
     >
       <AddCircleOutlineIcon color="secondary" />

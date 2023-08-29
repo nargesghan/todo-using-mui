@@ -43,6 +43,24 @@ const theme = createTheme({
             color:"#616161"
           },
         },
+        {
+          props: { variant: "summery" },
+          style: {
+            fontWeight: 400,
+            fontSize: 14,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#9e9e9e"
+          },
+        },
+        {
+          props: { variant: "bottom" },
+          style: {
+            fontWeight: 700,
+            fontSize: 16,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#9e9e9e"
+          },
+        },
       ]
     }
   },
