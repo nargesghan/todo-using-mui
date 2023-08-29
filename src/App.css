@@ -2,3 +2,10 @@
   margin: 0;
   padding: 0;
 }
+/* .input::-webkit-input-placeholder {
+  font-size: 50px;
+  line-height: 4;
+}
+.input::-ms-input-placeholder{
+  font-size: 50px;
+} */

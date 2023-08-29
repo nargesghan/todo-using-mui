@@ -1,7 +1,10 @@
 import { Container, TextField } from "@mui/material";
 import React from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+
 const TaskInput = () => {
+
+
   return (
     <Container
       sx={{
@@ -9,13 +12,13 @@ const TaskInput = () => {
         marginTop: 5,
         display: "flex",
         alignItems: "center",
-        height:50,
+        height:45,
         borderRadius:1
       }}
     >
       <AddCircleOutlineIcon color="secondary" />
       <TextField
-      
+    
         variant="standard" // <== changed this
         margin="normal"
         id="phoneNumber"

@@ -12,8 +12,8 @@ const theme = createTheme({
     secondary: {
       // main:'#C058F3',
       main: "#D2D3DB",
-      light:"#"
     },
+    
   },
   typography: {
     fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
@@ -29,8 +29,22 @@ const theme = createTheme({
             fontSize: 20,
           },
         },
+     
       ],
     },
+    MuiTypography:{
+      variants:[
+        {
+          props: { variant: "task" },
+          style: {
+            fontWeight: 400,
+            fontSize: 15,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#616161"
+          },
+        },
+      ]
+    }
   },
 });
 
