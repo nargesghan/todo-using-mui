@@ -54,8 +54,13 @@ function App() {
     });
   }
 
- 
-
+ function renameTask(newName,index){
+  setTasks((prev) => {
+    const copyOfTasks = [...prev];
+    copyOfTasks[index].name=newName;
+    return copyOfTasks;
+  });
+ }
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -82,6 +87,7 @@ function App() {
                         onClick={(done) => {
                           updateTaskDone(index, done);
                         }}
+                        onRename={(newName)=>renameTask(newName,index)}
                       />
                     );
                   })
@@ -98,6 +104,7 @@ function App() {
                         onClick={(done) => {
                           updateTaskDone(index, done);
                         }}
+                        onRename={(newName)=>renameTask(newName,index)}
                       />
                     );
                   })
@@ -111,6 +118,7 @@ function App() {
                       onClick={(done) => {
                         updateTaskDone(index, done);
                       }}
+                      onRename={(newName)=>renameTask(newName,index)}
                     />
                   );
                 })}
