@@ -19,8 +19,16 @@ function App() {
 
   useEffect(() => {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
-    setTasks(tasks);
+    tasks!==null ? setTasks(tasks):setTasks([]);
   }, []);
+function updateTaskDone(updateIndex,done){
+ setTasks((prev)=>{
+  const copyOfTasks=[...prev];
+  copyOfTasks[updateIndex].done=done;
+  return copyOfTasks;
+ })
+}
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -34,8 +42,8 @@ function App() {
           }}
         >
           <Container sx={{ width: "99%" }}>
-            {tasks.map((item, index) => {
-              return <Task key={index} name={item.name} done={item.done} />;
+            { tasks.map((item, index) => {
+              return <Task key={index} name={item.name} done={item.done} onClick={(done)=>{updateTaskDone(index,done)}}/>;
             })}
             <Summery />
           </Container>
