@@ -6,7 +6,12 @@ import { Container, Typography, Grid } from "@mui/material";
 import theme from "../assets/theme.jsx";
 import LightToggle from "./LightToggle";
 import TaskInput from "./TaskInput";
-const PageHeader = () => {
+import { useState } from "react";
+const PageHeader = ({tasks,setTasks}) => {
+
+  function AddTask(name){
+    setTasks(prev=>[...prev,{name,done:false}])
+  }
   return (
     <>
       <Box
@@ -20,7 +25,7 @@ const PageHeader = () => {
           margin: 0,
         }}
       >
-        <Container>
+        <Container sx={{width:"99%"}}>
           <Grid
             container
             direction="row"
@@ -44,7 +49,7 @@ const PageHeader = () => {
             <LightToggle />
           </Grid>
 
-          <TaskInput/>
+          <TaskInput onAdd={AddTask}/>
         </Container>
       </Box>
     </>

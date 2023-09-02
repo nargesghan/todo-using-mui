@@ -1,11 +1,18 @@
 import { Container, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-const TaskInput = () => {
-
+import IconButton from '@mui/material/IconButton';
+const TaskInput = ({onAdd}) => {
+  const [taskName,setTaskName]=useState('');
+ function handleSubmit(ev){
+   ev.preventDefault();
+   onAdd(taskName);
+   setTaskName('');
+ }
 
   return (
+    <form onSubmit={handleSubmit}>
     <Container
       sx={{
         backgroundColor: "primary.main",
@@ -17,7 +24,9 @@ const TaskInput = () => {
         maxWidth:500
       }}
     >
-      <AddCircleOutlineIcon color="secondary" />
+       <IconButton type="submit">
+  <AddCircleOutlineIcon  sx={{ color: "grey.300" }} /></IconButton>
+      
       <TextField
     
         variant="standard" // <== changed this
@@ -30,9 +39,16 @@ const TaskInput = () => {
         InputProps={{
           disableUnderline: true, 
         }}
-        sx={{ paddingLeft:2}}
+        value={taskName}
+        onChange={ev=>{setTaskName(ev.target.value)}}
+        sx={{ paddingLeft:2 ,'& input::placeholder': {
+          fontSize:15,
+        
+        },}}
+      
       />
     </Container>
+   </form>
   );
 };
 

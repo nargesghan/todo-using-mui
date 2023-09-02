@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Container from '@mui/material/Container';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import Typography from "@mui/material/Typography";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import Paper from "@mui/material/Paper"
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Grid from "@mui/material/Grid";
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
  const styleOfButton={
@@ -15,7 +15,8 @@ export default function SimpleBottomNavigation() {
 }
   
   return (
-    <Container
+    <Grid item  sx={{ maxWidth:500,width:"90%"}}>
+    <Paper
     sx={{
       backgroundColor: "primary.main",
       marginTop: 5,
@@ -25,6 +26,7 @@ export default function SimpleBottomNavigation() {
       borderRadius:1,
       maxWidth:500,
       overflow: "hidden",
+      justifyContent:"center"
     }}
   >
       <BottomNavigation
@@ -40,6 +42,7 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction label="Active" sx={{...styleOfButton}} />
         <BottomNavigationAction label="Completed" sx={{...styleOfButton}} />
       </BottomNavigation>
-    </Container>
+    </Paper>
+    </Grid>
   );
 }
