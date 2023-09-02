@@ -29,6 +29,8 @@ function updateTaskDone(updateIndex,done){
  })
 }
 
+let numberOfLeftTasks=tasks.filter(t=>!(t.done)).length;
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -45,7 +47,7 @@ function updateTaskDone(updateIndex,done){
             { tasks.map((item, index) => {
               return <Task key={index} name={item.name} done={item.done} onClick={(done)=>{updateTaskDone(index,done)}}/>;
             })}
-            <Summery />
+            <Summery numberOfLeftTasks={numberOfLeftTasks}/>
           </Container>
 
           <Grid

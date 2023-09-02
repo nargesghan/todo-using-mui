@@ -2,7 +2,7 @@ import React from 'react'
 import Container from "@mui/material/Container";
 import { BorderTop } from '@mui/icons-material';
 import Typography from "@mui/material/Typography";
-const Summery = () => {
+const Summery = ({numberOfLeftTasks}) => {
   return (
     <Container
     sx={{
@@ -18,7 +18,7 @@ const Summery = () => {
       maxWidth:500
     }}
   >
-    <Typography variant='summery' component={"p"} sx={{flexGrow:1}}>5 iems left</Typography>
+    <Typography variant='summery' component={"p"} sx={{flexGrow:1}}>{numberOfLeftTasks} iems left</Typography>
     <Typography variant='summery' component={"p"}>Clear Completed</Typography>
   </Container>
   )
