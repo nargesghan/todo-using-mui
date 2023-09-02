@@ -39,6 +39,13 @@ function App() {
     });
   }
 
+  function DeleteDoneTasks(){
+    setTasks((prev) => {
+      const copyOfTasks = tasks.filter(item=>!(item.done));
+      return copyOfTasks;
+    });
+  }
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -65,7 +72,7 @@ function App() {
                 />
               );
             })}
-            <Summery numberOfLeftTasks={numberOfLeftTasks} />
+            <Summery numberOfLeftTasks={numberOfLeftTasks} DeleteDoneTasks={DeleteDoneTasks} />
           </Container>
 
           <Grid
