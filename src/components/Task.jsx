@@ -3,7 +3,7 @@ import CheckButton from './CheckButton'
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-const Task = ({name , done,onClick}) => {
+const Task = ({name , done,onClick,onDelete}) => {
   return (
     <Container
     sx={{
@@ -18,7 +18,7 @@ const Task = ({name , done,onClick}) => {
   >
   <CheckButton checked={done} onClick={()=>onClick(!done)}/>
     <Typography  variant="task" component="p" sx={{paddingLeft:1,flexGrow:1,textDecoration:done&&"line-through",color:done&&"grey.400"}}>{name}</Typography>
-    <CloseOutlinedIcon  sx={{ color: "grey.400" }}/>
+    <CloseOutlinedIcon onClick={onDelete} sx={{ color: "grey.400" }}/>
   </Container>
   )
 }

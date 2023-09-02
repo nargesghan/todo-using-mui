@@ -13,23 +13,31 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    if(tasks.length===0)return;
+    if (tasks.length === 0) return;
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   useEffect(() => {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
-    tasks!==null ? setTasks(tasks):setTasks([]);
+    tasks !== null ? setTasks(tasks) : setTasks([]);
   }, []);
-function updateTaskDone(updateIndex,done){
- setTasks((prev)=>{
-  const copyOfTasks=[...prev];
-  copyOfTasks[updateIndex].done=done;
-  return copyOfTasks;
- })
-}
+  function updateTaskDone(updateIndex, done) {
+    setTasks((prev) => {
+      const copyOfTasks = [...prev];
+      copyOfTasks[updateIndex].done = done;
+      return copyOfTasks;
+    });
+  }
 
-let numberOfLeftTasks=tasks.filter(t=>!(t.done)).length;
+  let numberOfLeftTasks = tasks.filter((t) => !t.done).length;
+
+  function taskRemoval(index) {
+    setTasks((prev) => {
+      const copyOfTasks = [...prev];
+      copyOfTasks.splice(index, 1);
+      return copyOfTasks;
+    });
+  }
 
   return (
     <>
@@ -44,10 +52,20 @@ let numberOfLeftTasks=tasks.filter(t=>!(t.done)).length;
           }}
         >
           <Container sx={{ width: "99%" }}>
-            { tasks.map((item, index) => {
-              return <Task key={index} name={item.name} done={item.done} onClick={(done)=>{updateTaskDone(index,done)}}/>;
+            {tasks.map((item, index) => {
+              return (
+                <Task
+                  key={item.id}
+                  name={item.name}
+                  done={item.done}
+                  onDelete={() => taskRemoval(index)}
+                  onClick={(done) => {
+                    updateTaskDone(index, done);
+                  }}
+                />
+              );
             })}
-            <Summery numberOfLeftTasks={numberOfLeftTasks}/>
+            <Summery numberOfLeftTasks={numberOfLeftTasks} />
           </Container>
 
           <Grid

@@ -10,7 +10,7 @@ import { useState } from "react";
 const PageHeader = ({tasks,setTasks}) => {
 
   function AddTask(name){
-    setTasks(prev=>[...prev,{name,done:false}])
+    setTasks(prev=>[...prev,{name,done:false,id:Date.now()}])
   }
   return (
     <>
