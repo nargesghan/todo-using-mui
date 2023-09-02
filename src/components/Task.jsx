@@ -16,8 +16,8 @@ const Task = ({name , done,onClick}) => {
       maxWidth:500
     }}
   >
-    <CheckButton checked={done} onClick={()=>onClick(!done)}/>
-    <Typography  variant="task" component="p" sx={{paddingLeft:2,flexGrow:1}}>{name}</Typography>
+  <CheckButton checked={done} onClick={()=>onClick(!done)}/>
+    <Typography  variant="task" component="p" sx={{paddingLeft:1,flexGrow:1,textDecoration:done&&"line-through",color:done&&"grey.400"}}>{name}</Typography>
     <CloseOutlinedIcon  sx={{ color: "grey.400" }}/>
   </Container>
   )

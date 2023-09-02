@@ -6,7 +6,7 @@ const CheckButton = ({checked=false ,onClick}) => {
 
   const handleCheck=()=>{!checked}
   return (
-    <div onClick={onClick}>
+    <div style={{height:"24px"}}onClick={onClick}>
     {checked && (<SvgIcon onClick={handleCheck}>
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
