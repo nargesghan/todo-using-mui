@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHeader from "./components/PageHeader";
 import "./App.css";
-import { ThemeProvider,Container,Grid } from "@mui/material";
+import { ThemeProvider, Container, Grid } from "@mui/material";
 import theme from "./assets/theme.jsx";
 import Task from "./components/Task";
 import Paper from "@mui/material/Paper";
@@ -10,8 +10,17 @@ import Summery from "./components/Summery";
 import SimpleBottomNavigation from "./components/BottomNavigation";
 
 function App() {
-  const [tasks,setTasks]=useState([]);
+  const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    if(tasks.length===0)return;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    setTasks(tasks);
+  }, []);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -24,18 +33,19 @@ function App() {
             margin: 0,
           }}
         >
-         
-            <Container sx={{width:"99%"}}>
-       
-              {tasks.map((item , index)=>{
-                return <Task key={index} name={item.name} done={item.done}/>
-              })}
-              <Summery />
-           
-            </Container>
-          
+          <Container sx={{ width: "99%" }}>
+            {tasks.map((item, index) => {
+              return <Task key={index} name={item.name} done={item.done} />;
+            })}
+            <Summery />
+          </Container>
 
-            <Grid container  direction="column" alignItems="center" justifyContent="center">
+          <Grid
+            container
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
             <SimpleBottomNavigation />
           </Grid>
           {/* <Typography>Drag and Drop to render list</Typography> */}
