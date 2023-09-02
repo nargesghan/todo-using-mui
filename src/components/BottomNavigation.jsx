@@ -4,7 +4,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import Paper from "@mui/material/Paper"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Grid from "@mui/material/Grid";
-export default function SimpleBottomNavigation() {
+export default function SimpleBottomNavigation({setDisplayOption}) {
   const [value, setValue] = React.useState(0);
  const styleOfButton={
   fontWeight: 700,
@@ -38,9 +38,9 @@ export default function SimpleBottomNavigation() {
         sx={{height:"100%"}}
       >
       
-       <BottomNavigationAction label="All" sx={{...styleOfButton}}  />
-        <BottomNavigationAction label="Active" sx={{...styleOfButton}} />
-        <BottomNavigationAction label="Completed" sx={{...styleOfButton}} />
+       <BottomNavigationAction onClick={()=>setDisplayOption("all")} label="All" sx={{...styleOfButton}}  />
+        <BottomNavigationAction onClick={()=>setDisplayOption("active")} label="Active" sx={{...styleOfButton}} />
+        <BottomNavigationAction onClick={()=>setDisplayOption("completed")} label="Completed" sx={{...styleOfButton}} />
       </BottomNavigation>
     </Paper>
     </Grid>

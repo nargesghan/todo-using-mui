@@ -4,13 +4,21 @@ import "./App.css";
 import { ThemeProvider, Container, Grid } from "@mui/material";
 import theme from "./assets/theme.jsx";
 import Task from "./components/Task";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Summery from "./components/Summery";
 import SimpleBottomNavigation from "./components/BottomNavigation";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  const display = {
+    ALL: "all",
+    ACTIVE: "active",
+    COMPLETED: "completed",
+  };
+   
+  const [displayOption,setDisplayOption]=useState(display.ALL);
+
 
   useEffect(() => {
     if (tasks.length === 0) return;
@@ -39,12 +47,14 @@ function App() {
     });
   }
 
-  function DeleteDoneTasks(){
+  function DeleteDoneTasks() {
     setTasks((prev) => {
-      const copyOfTasks = tasks.filter(item=>!(item.done));
+      const copyOfTasks = tasks.filter((item) => !item.done);
       return copyOfTasks;
     });
   }
+
+ 
 
   return (
     <>
@@ -59,20 +69,57 @@ function App() {
           }}
         >
           <Container sx={{ width: "99%" }}>
-            {tasks.map((item, index) => {
-              return (
-                <Task
-                  key={item.id}
-                  name={item.name}
-                  done={item.done}
-                  onDelete={() => taskRemoval(index)}
-                  onClick={(done) => {
-                    updateTaskDone(index, done);
-                  }}
-                />
-              );
-            })}
-            <Summery numberOfLeftTasks={numberOfLeftTasks} DeleteDoneTasks={DeleteDoneTasks} />
+            {displayOption === display.COMPLETED
+              ? tasks
+                  .filter((task) => task.done)
+                  .map((task, index) => {
+                    return (
+                      <Task
+                        key={task.id}
+                        name={task.name}
+                        done={task.done}
+                        onDelete={() => taskRemoval(index)}
+                        onClick={(done) => {
+                          updateTaskDone(index, done);
+                        }}
+                      />
+                    );
+                  })
+              : displayOption === display.ACTIVE
+              ? tasks
+                  .filter((task) => !task.done)
+                  .map((task, index) => {
+                    return (
+                      <Task
+                        key={task.id}
+                        name={task.name}
+                        done={task.done}
+                        onDelete={() => taskRemoval(index)}
+                        onClick={(done) => {
+                          updateTaskDone(index, done);
+                        }}
+                      />
+                    );
+                  })
+              : tasks.map((task, index) => {
+                  return (
+                    <Task
+                      key={task.id}
+                      name={task.name}
+                      done={task.done}
+                      onDelete={() => taskRemoval(index)}
+                      onClick={(done) => {
+                        updateTaskDone(index, done);
+                      }}
+                    />
+                  );
+                })}
+
+       
+            <Summery
+              numberOfLeftTasks={numberOfLeftTasks}
+              DeleteDoneTasks={DeleteDoneTasks}
+            />
           </Container>
 
           <Grid
@@ -81,7 +128,7 @@ function App() {
             alignItems="center"
             justifyContent="center"
           >
-            <SimpleBottomNavigation />
+            <SimpleBottomNavigation  setDisplayOption={setDisplayOption}/>
           </Grid>
           {/* <Typography>Drag and Drop to render list</Typography> */}
         </Box>
@@ -89,5 +136,7 @@ function App() {
     </>
   );
 }
+
+
 
 export default App;
