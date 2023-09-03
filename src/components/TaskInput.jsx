@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import IconButton from "@mui/material/IconButton";
 const TaskInput = ({ onAdd }) => {
   const [taskName, setTaskName] = useState("");
-  
+
   function handleSubmit(ev) {
     ev.preventDefault();
     onAdd(taskName);
@@ -20,9 +20,9 @@ const TaskInput = ({ onAdd }) => {
           marginTop: 5,
           display: "flex",
           alignItems: "center",
-          height: 45,
+          height: 50,
           borderRadius: 1,
-          maxWidth: 500,
+          maxWidth: 450,
         }}
       >
         <IconButton type="submit">

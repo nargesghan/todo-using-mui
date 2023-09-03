@@ -4,9 +4,9 @@ import "./App.css";
 import { ThemeProvider, Container, Grid } from "@mui/material";
 import {lightTheme,darkTheme} from "./assets/theme.jsx";
 import Task from "./components/Task";
-import Box from "@mui/material/Box";
 import Summery from "./components/Summery";
 import SimpleBottomNavigation from "./components/BottomNavigation";
+import Box from "@mui/material/Box";
 
 function App() {
   const [tasks, setTasks] = useState([]);

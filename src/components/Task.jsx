@@ -15,16 +15,15 @@ const Task = ({ name, done, onClick, onDelete, onRename }) => {
         alignItems: "center",
         height: 50,
         borderRadius: 1,
-        maxWidth: 500,
+        maxWidth: 450,
         width: {
           // theme.breakpoints.up('xs')
-          md: 500,
+          md: 400,
         },
         borderRadius: 0.5,
         borderTopStyle: "solid",
         borderTopWidth: 1,
-        borderTopColor: "secondary.main",//grey.300
-       
+        borderTopColor: "secondary.main", //grey.300
       }}
     >
       <CheckButton checked={done} onClick={() => onClick(!done)} />
@@ -74,7 +73,7 @@ const Task = ({ name, done, onClick, onDelete, onRename }) => {
       <CloseOutlinedIcon
         onClick={onDelete}
         className="close-icon"
-        sx={{ color: "secondary.main", cursor: "pointer", }}
+        sx={{ color: "secondary.main", cursor: "pointer" }}
       />
     </Container>
   );
