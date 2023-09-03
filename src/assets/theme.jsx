@@ -1,6 +1,13 @@
 import { createTheme } from "@mui/material";
 
-const theme = createTheme({
+ const lightTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 375,
+      md:1440,
+    },
+  },
   palette: {
     mode: "light",
     primary: {
@@ -11,7 +18,9 @@ const theme = createTheme({
     },
     secondary: {
       // main:'#C058F3',
-      main: "#D2D3DB",
+      main: "#e0e0e0",
+      light:"#bdbdbd",
+      dark:"#adadad"
     },
     
   },
@@ -66,4 +75,79 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+const darkTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 375,
+      md:1440,
+    },
+  },
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#25273C",
+      light: "#161722",
+      dark: "#D2D3DB",
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      // main:'#C058F3',
+      main: "#393A4C",
+      light:"#CACDE8",
+      dark:"#777A92"
+    },
+    
+  },
+  typography: {
+    fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+  },
+
+  components: {
+    MuiTextField: {
+      variants: [
+        {
+          props: { variant: "standard" },
+          style: {
+            fontWeight: 400,
+            fontSize: 20,
+          },
+        },
+     
+      ],
+    },
+    MuiTypography:{
+      variants:[
+        {
+          props: { variant: "task" },
+          style: {
+            fontWeight: 400,
+            fontSize: 15,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#CACDE8"
+          },
+        },
+        {
+          props: { variant: "summery" },
+          style: {
+            fontWeight: 400,
+            fontSize: 14,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#CACDE8"
+          },
+        },
+        {
+          props: { variant: "bottom" },
+          style: {
+            fontWeight: 700,
+            fontSize: 16,
+            fontFamily: ["Josefin Sans", "Arial", "sans-serif"].join(","),
+            color:"#CACDE8"
+          },
+        },
+      ]
+    }
+  },
+});
+
+export {lightTheme,darkTheme};

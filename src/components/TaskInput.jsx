@@ -26,7 +26,7 @@ const TaskInput = ({ onAdd }) => {
         }}
       >
         <IconButton type="submit">
-          <AddCircleOutlineIcon sx={{ color: "grey.300" }} />
+          <AddCircleOutlineIcon sx={{ color: "secondary.main" }} />
         </IconButton>
 
         <TextField

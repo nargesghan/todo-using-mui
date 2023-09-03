@@ -6,7 +6,7 @@ const CheckButton = ({checked=false ,onClick}) => {
 
   const handleCheck=()=>{!checked}
   return (
-    <div style={{height:"24px"}}onClick={onClick}>
+    <div style={{height:"24px",cursor:"pointer"}}onClick={onClick}>
     {checked && (<SvgIcon onClick={handleCheck}>
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -16,7 +16,7 @@ const CheckButton = ({checked=false ,onClick}) => {
     </defs>
     <CheckCircleIcon sx={{ fill: 'url(#gradient)' }} />
   </SvgIcon>)}
-   {!checked && (<PanoramaFishEyeIcon onClick={handleCheck} sx={{ color: "grey.300" }}/>)}
+   {!checked && (<PanoramaFishEyeIcon onClick={handleCheck} sx={{ color: "secondary.main" }}/>)}
  
   </div>
   )

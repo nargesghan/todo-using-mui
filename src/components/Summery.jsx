@@ -6,7 +6,7 @@ const Summery = ({numberOfLeftTasks ,DeleteDoneTasks}) => {
   return (
     <Container
     sx={{
-      backgroundColor: "#FAFAFA",
+      backgroundColor: "primary.main",
       marginTop: 0,
       display: "flex",
       alignItems: "center",
@@ -14,8 +14,9 @@ const Summery = ({numberOfLeftTasks ,DeleteDoneTasks}) => {
       borderRadius:1,
       borderTopStyle:"solid",
       borderTopWidth:1,
-      borderTopColor:"grey.300",
-      maxWidth:500
+      borderTopColor:"secondary.main",
+      maxWidth:500,
+      boxShadow:" rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
     }}
   >
     <Typography variant='summery' component={"p"} sx={{flexGrow:1}}>{numberOfLeftTasks} iems left</Typography>

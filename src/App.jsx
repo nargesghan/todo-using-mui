@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PageHeader from "./components/PageHeader";
 import "./App.css";
 import { ThemeProvider, Container, Grid } from "@mui/material";
-import theme from "./assets/theme.jsx";
+import {lightTheme,darkTheme} from "./assets/theme.jsx";
 import Task from "./components/Task";
 import Box from "@mui/material/Box";
 import Summery from "./components/Summery";
@@ -10,6 +10,9 @@ import SimpleBottomNavigation from "./components/BottomNavigation";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+   
+  const [dark,setDark]=useState(false);
+ 
 
   const display = {
     ALL: "all",
@@ -61,10 +64,16 @@ function App() {
     return copyOfTasks;
   });
  }
+
+ function themeChanger(){
+  console.log(dark);
+  setDark(!dark);
+  console.log(dark);
+ }
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <PageHeader tasks={tasks} setTasks={setTasks} />
+      <ThemeProvider theme={dark?darkTheme:lightTheme}>
+        <PageHeader tasks={tasks} setTasks={setTasks} setDark={themeChanger} mode={dark?darkTheme.palette.mode:lightTheme.palette.mode} />
         <Box
           sx={{
             backgroundColor: "primary.light",

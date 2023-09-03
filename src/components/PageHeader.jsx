@@ -2,13 +2,14 @@ import Box from "@mui/material/Box";
 import React from "react";
 import headerImageLight from "../assets/images/bg-mobile-light.jpg";
 import headerImageDark from "../assets/images/bg-mobile-dark.jpg";
+import headerImageLightsm from "../assets/images/bg-desktop-light.jpg";
+import headerImageDarksm from "../assets/images/bg-desktop-dark.jpg";
 import { Container, Typography, Grid } from "@mui/material";
-import theme from "../assets/theme.jsx";
+
 import LightToggle from "./LightToggle";
 import TaskInput from "./TaskInput";
 import { useState } from "react";
-const PageHeader = ({tasks,setTasks}) => {
-
+const PageHeader = ({tasks,setTasks,setDark,mode}) => {
   function AddTask(name){
     setTasks(prev=>[...prev,{name,done:false,id:Date.now()}])
   }
@@ -16,15 +17,20 @@ const PageHeader = ({tasks,setTasks}) => {
     <>
       <Box
         sx={{
-          backgroundImage:
-            theme.palette.mode === "light"
-              ? `url(${headerImageLight})`
-              : `url(${headerImageDark})`,
+          backgroundImage:{xs:mode === "light"
+          ? `url(${headerImageLight})`
+          : `url(${headerImageDark})`,
+        sm:mode === "light"
+        ? `url(${headerImageLightsm})`
+        : `url(${headerImageDarksm})`
+        },
+            
           width: "100%",
           height: 200,
           margin: 0,
         }}
       >
+       
         <Container sx={{width:"99%"}}>
           <Grid
             container
@@ -46,7 +52,7 @@ const PageHeader = ({tasks,setTasks}) => {
             >
               TODO
             </Typography>
-            <LightToggle />
+            <LightToggle themeChange={setDark} mode={mode} />
           </Grid>
 
           <TaskInput onAdd={AddTask}/>
