@@ -66,14 +66,13 @@ function App() {
  }
 
  function themeChanger(){
-  console.log(dark);
   setDark(!dark);
-  console.log(dark);
+  
  }
   return (
     <>
       <ThemeProvider theme={dark?darkTheme:lightTheme}>
-        <PageHeader tasks={tasks} setTasks={setTasks} setDark={themeChanger} mode={dark?darkTheme.palette.mode:lightTheme.palette.mode} />
+        <PageHeader setTasks={setTasks} setDark={themeChanger} mode={dark?darkTheme.palette.mode:lightTheme.palette.mode} />
         <Box
           sx={{
             backgroundColor: "primary.light",
@@ -82,7 +81,7 @@ function App() {
             margin: 0,
           }}
         >
-          <Container sx={{ width: "99%" }}>
+          <Container sx={{ width: "99%",position:'relative',bottom:{xs:'25px', sm:'40px'} }}>
             {displayOption === display.COMPLETED
               ? tasks
                   .filter((task) => task.done)

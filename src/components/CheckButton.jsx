@@ -10,10 +10,9 @@ const CheckButton = ({checked=false ,onClick}) => {
       fill: 'url(#gradient)', // set the fill color to the gradient on hover
     },
   });
-  const handleCheck=()=>{!checked}
   return (
     <div style={{height:"24px",cursor:"pointer"}}onClick={onClick}>
-    {checked && (<SvgIcon onClick={handleCheck}>
+    {checked && (<SvgIcon >
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stopColor="#57DDFF" />
@@ -22,17 +21,18 @@ const CheckButton = ({checked=false ,onClick}) => {
     </defs>
     <CheckCircleIcon sx={{ fill: 'url(#gradient)' }} />
   </SvgIcon>)}
-   {/* {!checked && (<PanoramaFishEyeIcon onClick={handleCheck} sx={{ color: "secondary.main" }}/>)} */}
-   {!checked &&   <div style={{height:"24px",cursor:"pointer"}}>
+   
+   
+   {!checked &&   <SvgIcon>
   <defs>
     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stopColor="#57DDFF" />
       <stop offset="100%" stopColor="#C058F3" />
     </linearGradient>
   </defs>
-  <StyledIcon onClick={handleCheck} sx={{ color: 'secondary.main',width: 24, height: 24  }} />
-  </div>}
- 
+  <StyledIcon  sx={{ color: 'secondary.main',width: 24, height: 24  }} />
+  </SvgIcon>}
+
   </div>
   )
 }

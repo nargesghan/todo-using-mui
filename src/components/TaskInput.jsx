@@ -8,8 +8,10 @@ const TaskInput = ({ onAdd }) => {
 
   function handleSubmit(ev) {
     ev.preventDefault();
+    if(taskName==''){alert('input is empty')}
+    else{
     onAdd(taskName);
-    setTaskName("");
+    setTaskName("");}
   }
 
   return (
@@ -17,7 +19,7 @@ const TaskInput = ({ onAdd }) => {
       <Container
         sx={{
           backgroundColor: "primary.main",
-          marginTop: 5,
+          marginTop: 2,
           display: "flex",
           alignItems: "center",
           height: 50,

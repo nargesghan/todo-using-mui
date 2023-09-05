@@ -15,7 +15,7 @@ export default function SimpleBottomNavigation({ setDisplayOption }) {
   };
 
   return (
-    <Grid item sx={{ maxWidth: 450, width: "90%" }}>
+    <Grid item sx={{ maxWidth:450, width: "90%", }}>
       <Container
         sx={{
           backgroundColor: "primary.main",

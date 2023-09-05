@@ -3,7 +3,7 @@ import CheckButton from "./CheckButton";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { TextField, Tooltip } from "@mui/material";
+import { TextField } from "@mui/material";
 const Task = ({ name, done, onClick, onDelete, onRename }) => {
   const [editMode, setEditMode] = useState(false);
   return (

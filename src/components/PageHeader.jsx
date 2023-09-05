@@ -8,8 +8,7 @@ import { Container, Typography, Grid } from "@mui/material";
 import LightToggle from "./LightToggle";
 import TaskInput from "./TaskInput";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-const PageHeader = ({tasks,setTasks,setDark,mode}) => {
+const PageHeader = ({setTasks,setDark,mode}) => {
   function AddTask(name){
     setTasks(prev=>[...prev,{name,done:false,id:Date.now()}])
   }
@@ -28,15 +27,20 @@ const PageHeader = ({tasks,setTasks,setDark,mode}) => {
           width: "100%",
           height: 200,
           margin: 0,
+          
         }}
       >
        
-        <Container sx={{width:"99%"}}>
+        <Container   sx={{width:"99%"}}>
           <Grid
             container
             direction="row"
             justifyContent="space-between"
             alignItems="center"
+            maxWidth={'500px'}
+            sx={{
+              marginLeft: 'auto',
+              marginRight: 'auto'}}
           >
             {" "}
             <Typography
