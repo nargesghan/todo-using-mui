@@ -45,12 +45,16 @@ function App() {
 
   let numberOfLeftTasks = tasks.filter((t) => !t.done).length;
 
-  function taskRemoval(index) {
+  function taskRemoval(id) {
     setTasks((prev) => {
       const copyOfTasks = [...prev];
-      copyOfTasks.splice(index, 1);
+      for(let i=0;i<copyOfTasks.length;i++){
+        if(id===copyOfTasks[i].id){
+          copyOfTasks.splice(i, 1);
+        }
+      }
       return copyOfTasks;
-    });
+    })
   }
 
   function DeleteDoneTasks() {
@@ -60,10 +64,14 @@ function App() {
     });
   }
 
- function renameTask(newName,index){
+ function renameTask(newName,id){
   setTasks((prev) => {
     const copyOfTasks = [...prev];
-    copyOfTasks[index].name=newName;
+    for(let i=0;i<copyOfTasks.length;i++){
+      if(id===copyOfTasks[i].id){
+        copyOfTasks[i].name=newName;
+      }
+    }
     return copyOfTasks;
   });
  }
@@ -94,13 +102,13 @@ function App() {
                         key={task.id}
                         name={task.name}
                         done={task.done}
-                        onDelete={() => taskRemoval(index)}
+                        onDelete={() => taskRemoval(task.id)}
                         onClick={(done) => {
                           console.log(index);
                           updateTaskDone(task.id, done);
                           
                         }}
-                        onRename={(newName)=>renameTask(newName,index)}
+                        onRename={(newName)=>renameTask(newName,task.id)}
                       />
                     );
                   })
@@ -113,11 +121,11 @@ function App() {
                         key={task.id}
                         name={task.name}
                         done={task.done}
-                        onDelete={() => taskRemoval(index)}
+                        onDelete={() => taskRemoval(task.id)}
                         onClick={(done) => {
                           updateTaskDone(task.id, done);
                         }}
-                        onRename={(newName)=>renameTask(newName,index)}
+                        onRename={(newName)=>renameTask(newName,task.id)}
                       />
                     );
                   })
@@ -127,11 +135,11 @@ function App() {
                       key={task.id}
                       name={task.name}
                       done={task.done}
-                      onDelete={() => taskRemoval(index)}
+                      onDelete={() => taskRemoval(task.id)}
                       onClick={(done) => {
                         updateTaskDone(task.id, done);
                       }}
-                      onRename={(newName)=>renameTask(newName,index)}
+                      onRename={(newName)=>renameTask(newName,task.id)}
                     />
                   );
                 })}
