@@ -37,7 +37,7 @@ const PageHeader = ({setTasks,setDark,mode}) => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            maxWidth={'500px'}
+            maxWidth={'450px'}
             sx={{
               marginLeft: 'auto',
               marginRight: 'auto'}}

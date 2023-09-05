@@ -19,7 +19,7 @@ export default function SimpleBottomNavigation({ setDisplayOption }) {
       <Container
         sx={{
           backgroundColor: "primary.main",
-          marginTop: 5,
+          marginTop: 0,
           display: "flex",
           justifyContent: "center",
           height: 50,
