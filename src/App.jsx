@@ -32,10 +32,13 @@ function App() {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
     tasks !== null ? setTasks(tasks) : setTasks([]);
   }, []);
-  function updateTaskDone(updateIndex, done) {
+  function updateTaskDone(id, done) {
     setTasks((prev) => {
       const copyOfTasks = [...prev];
-      copyOfTasks[updateIndex].done = done;
+      for(let i=0;i<copyOfTasks.length;i++){
+        if(id===copyOfTasks[i].id)
+        copyOfTasks[i].done=done;
+      }
       return copyOfTasks;
     });
   }
@@ -93,7 +96,9 @@ function App() {
                         done={task.done}
                         onDelete={() => taskRemoval(index)}
                         onClick={(done) => {
-                          updateTaskDone(index, done);
+                          console.log(index);
+                          updateTaskDone(task.id, done);
+                          
                         }}
                         onRename={(newName)=>renameTask(newName,index)}
                       />
@@ -110,7 +115,7 @@ function App() {
                         done={task.done}
                         onDelete={() => taskRemoval(index)}
                         onClick={(done) => {
-                          updateTaskDone(index, done);
+                          updateTaskDone(task.id, done);
                         }}
                         onRename={(newName)=>renameTask(newName,index)}
                       />
@@ -124,7 +129,7 @@ function App() {
                       done={task.done}
                       onDelete={() => taskRemoval(index)}
                       onClick={(done) => {
-                        updateTaskDone(index, done);
+                        updateTaskDone(task.id, done);
                       }}
                       onRename={(newName)=>renameTask(newName,index)}
                     />
