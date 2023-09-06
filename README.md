@@ -35,17 +35,14 @@ Users should be able to:
 ### Screenshot
 
 
-![Screenshot (560)](https://github.com/nargesghan/todo-using-mui/assets/72782438/5b3a9ca2-647d-4e24-a623-9fae6826aba0)
+![Capture](https://github.com/nargesghan/todo-using-mui/assets/72782438/d79b1438-da20-4b1b-8ccc-fc75a1f1d193)
+![Capture2](https://github.com/nargesghan/todo-using-mui/assets/72782438/d345a3b9-03db-421e-a1b8-b8547628ea54)
 
-
-
-![Screenshot (559)](https://github.com/nargesghan/todo-using-mui/assets/72782438/59df3330-ecb1-489a-8334-c4ebfd041a14)
 
 ### Links
 
-- Solution URL: [[Add solution URL here](https://github.com/nargesghan/todo-using-mui)]
-
-
+- Solution URL: [[ solution URL](https://github.com/nargesghan/todo-using-mui)]
+- live: [[ [live](https://nargesghan.github.io/todo-using-mui/)]]
 
 
 ### Built with
