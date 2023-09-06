@@ -1,8 +1,83 @@
-# React + Vite
+# Frontend Mentor - Todo app solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- edit todo after added to the list
+
+### Screenshot
+
+
+![Screenshot (560)](https://github.com/nargesghan/todo-using-mui/assets/72782438/5b3a9ca2-647d-4e24-a623-9fae6826aba0)
+
+
+
+![Screenshot (559)](https://github.com/nargesghan/todo-using-mui/assets/72782438/59df3330-ecb1-489a-8334-c4ebfd041a14)
+
+### Links
+
+- Solution URL: [[Add solution URL here](https://github.com/nargesghan/todo-using-mui)]
+
+
+
+
+### Built with
+
+- vite
+- mui - For styles
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+
+
+
+
+### What I learned
++ working with react.
++ how to use mui grid.
++ react hooks( useState and useeffect)
+
+
+
+
+
+### Useful resources
+
+- [[material ui docmentation](https://mui.com/)] - this documentation realy helped me to style my page.
+
+
+
+## Author
+
+- linkedin - [Narges Ghanbari](https://www.your-site.com)
+- Twitter - [@N_rg3gg](https://www.twitter.com/N_rg3gg)
+
+
+
+
